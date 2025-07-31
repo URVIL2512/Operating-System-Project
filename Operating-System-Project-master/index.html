@@ -65,6 +65,27 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        .launch-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .launch-btn:hover {
+            background: linear-gradient(45deg, #20c997, #28a745);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+        
         .algorithms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -178,6 +199,19 @@
             <a href="https://github.com/URVIL2512/Operating-System-Project/archive/main.zip" class="github-btn" target="_blank">
                 ⬇️ Download Project
             </a>
+            <a href="MainMenu.java" class="github-btn" style="background: #28a745; border: 2px solid #28a745;">
+                🚀 Launch Project
+            </a>
+        </div>
+        
+        <!-- Launch Project Section -->
+        <div style="text-align: center; margin: 40px 0; padding: 30px; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 2em;">🎯 Ready to Explore Algorithms?</h2>
+            <p style="color: #7f8c8d; margin-bottom: 30px; font-size: 1.1em;">Click the button below to launch the main menu and start exploring the algorithms!</p>
+            <a href="MainMenu.java" class="launch-btn">
+                🚀 Launch Project & Select Algorithm
+            </a>
+            <p style="color: #95a5a6; font-size: 0.9em; margin-top: 15px;">This will open the Java application where you can choose and run any algorithm</p>
         </div>
         
         <div class="algorithms-grid">
@@ -190,6 +224,11 @@
                     <li>Dynamic priority management</li>
                     <li>Interactive simulation controls</li>
                 </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="PrioritySchedulingGUI.java" class="launch-btn" style="padding: 10px 20px; font-size: 0.9em;">
+                        🎯 Launch Priority Scheduling
+                    </a>
+                </div>
             </div>
             
             <div class="algorithm-card">
@@ -201,6 +240,11 @@
                     <li>Exclusive writer access</li>
                     <li>Real-time status monitoring</li>
                 </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="ReadersWritersGUI.java" class="launch-btn" style="padding: 10px 20px; font-size: 0.9em;">
+                        📚 Launch Readers-Writers
+                    </a>
+                </div>
             </div>
             
             <div class="algorithm-card">
@@ -212,6 +256,11 @@
                     <li>Head movement visualization</li>
                     <li>Performance metrics display</li>
                 </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="FCFSDiskSchedulingGUI.java" class="launch-btn" style="padding: 10px 20px; font-size: 0.9em;">
+                        💾 Launch FCFS Disk Scheduling
+                    </a>
+                </div>
             </div>
             
             <div class="algorithm-card">
@@ -223,6 +272,11 @@
                     <li>LRU implementation</li>
                     <li>Performance analysis</li>
                 </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="LRUPageReplacementGUI.java" class="launch-btn" style="padding: 10px 20px; font-size: 0.9em;">
+                        🔄 Launch LRU Algorithm
+                    </a>
+                </div>
             </div>
         </div>
         
