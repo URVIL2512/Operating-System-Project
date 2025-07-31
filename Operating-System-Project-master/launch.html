@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Operating System Algorithms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        
+        .launch-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            border-left: 5px solid #28a745;
+        }
+        
+        .launch-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin: 10px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .launch-btn:hover {
+            background: linear-gradient(45deg, #20c997, #28a745);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+        
+        .instructions {
+            background: #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            color: #555;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 10px 0;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .algorithm-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .algorithm-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .algorithm-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Launch Operating System Algorithms</h1>
+            <p>Ready to explore the algorithms? Follow the instructions below to run the project.</p>
+        </div>
+        
+        <div class="launch-section">
+            <h2>📥 Step 1: Download the Project</h2>
+            <p>First, download the complete project to your computer:</p>
+            <a href="https://github.com/URVIL2512/Operating-System-Project/archive/main.zip" class="launch-btn" target="_blank">
+                ⬇️ Download Project ZIP
+            </a>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Step 2: Extract and Run</h3>
+            <ol>
+                <li><strong>Extract the ZIP file</strong> to a folder on your computer</li>
+                <li><strong>Open Command Prompt/Terminal</strong> in the extracted folder</li>
+                <li><strong>Compile the project:</strong></li>
+            </ol>
+            <div class="code-block">
+                javac *.java
+            </div>
+            <ol start="4">
+                <li><strong>Run the main menu:</strong></li>
+            </ol>
+            <div class="code-block">
+                java MainMenu
+            </div>
+        </div>
+        
+        <div class="launch-section">
+            <h2>🎯 Available Algorithms</h2>
+            <div class="algorithm-grid">
+                <div class="algorithm-card">
+                    <h4>🎯 Priority Scheduling</h4>
+                    <p>Advanced process scheduling with priority management</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>📚 Readers-Writers</h4>
+                    <p>Semaphore-based synchronization problem</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>💾 FCFS Disk Scheduling</h4>
+                    <p>First Come First Serve disk scheduling</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>🔄 LRU Page Replacement</h4>
+                    <p>Least Recently Used memory management</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>⚡ Quick Alternative</h3>
+            <p>If you have Java installed, you can also run individual algorithms directly:</p>
+            <div class="code-block">
+                java PrioritySchedulingGUI<br>
+                java ReadersWritersGUI<br>
+                java FCFSDiskSchedulingGUI<br>
+                java LRUPageReplacementGUI
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">← Back to Main Page</a>
+        </div>
+    </div>
+</body>
+</html> 
