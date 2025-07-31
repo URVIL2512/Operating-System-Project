@@ -8,7 +8,7 @@ public class ReadersWritersGUI extends JFrame {
     private JTextArea logArea;
     private JTextArea statusArea;
     private JButton addReaderButton, addWriterButton, startSimulationButton, stopSimulationButton;
-    private JSpinner readerCountSpinner, writerCountSpinner;
+    private JTextField readerCountField, writerCountField;
     private volatile boolean simulationRunning = false;
     private ExecutorService executor;
     private int readerCount = 0;
@@ -82,12 +82,14 @@ public class ReadersWritersGUI extends JFrame {
         inputPanel.setBackground(Color.WHITE);
         
         inputPanel.add(new JLabel("Number of Readers:"));
-        readerCountSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        inputPanel.add(readerCountSpinner);
+        readerCountField = new JTextField();
+        readerCountField.setPreferredSize(new Dimension(100, 25));
+        inputPanel.add(readerCountField);
         
         inputPanel.add(new JLabel("Number of Writers:"));
-        writerCountSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 5, 1));
-        inputPanel.add(writerCountSpinner);
+        writerCountField = new JTextField();
+        writerCountField.setPreferredSize(new Dimension(100, 25));
+        inputPanel.add(writerCountField);
         
         inputPanel.add(new JLabel(""));
         JButton setupButton = new JButton("Setup Simulation");
@@ -183,6 +185,8 @@ public class ReadersWritersGUI extends JFrame {
     private void setupSimulation() {
         readerCount = 0;
         writerCount = 0;
+        readerCountField.setText("");
+        writerCountField.setText("");
         statusArea.setText("Simulation ready!\nReaders: 0\nWriters: 0\n\nClick 'Start Simulation' to begin.");
         logArea.setText("");
         addReaderButton.setEnabled(true);

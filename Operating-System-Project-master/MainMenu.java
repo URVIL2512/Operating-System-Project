@@ -3,93 +3,140 @@ import java.awt.*;
 
 public class MainMenu extends JFrame {
     
+    private JRadioButton priorityButton;
+    private JRadioButton readersWritersButton;
+    private JRadioButton fcfsButton;
+    private JRadioButton lruButton;
+    private ButtonGroup algorithmGroup;
+    
     public MainMenu() {
-        setTitle("Operating System Algorithms - Main Menu");
+        setTitle("Operating System Algorithms Project");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
         
-        // Main panel
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(new Color(240, 248, 255)); // Light blue background
-        
-        // Header
         JPanel headerPanel = new JPanel();
-        headerPanel.setBackground(new Color(70, 130, 180)); // Steel blue
-        JLabel titleLabel = new JLabel("Operating System Algorithms", SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
-        titleLabel.setForeground(Color.WHITE);
-        headerPanel.add(titleLabel);
-        mainPanel.add(headerPanel, BorderLayout.NORTH);
+        headerPanel.setBackground(new Color(52, 152, 219));
+        headerPanel.setLayout(new BorderLayout());
+        headerPanel.setPreferredSize(new Dimension(800, 60));
         
-        // Welcome message
-        JPanel welcomePanel = new JPanel();
-        welcomePanel.setBackground(new Color(240, 248, 255));
-        JLabel welcomeLabel = new JLabel("Welcome to Operating System Algorithms Project!", SwingConstants.CENTER);
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        welcomeLabel.setForeground(new Color(70, 130, 180));
-        welcomePanel.add(welcomeLabel);
-        mainPanel.add(welcomePanel, BorderLayout.CENTER);
+        JLabel headerLabel = new JLabel("Operating System Algorithms");
+        headerLabel.setForeground(Color.WHITE);
+        headerLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        headerPanel.add(headerLabel, BorderLayout.WEST);
+        add(headerPanel, BorderLayout.NORTH);
         
-        // Algorithm buttons panel
-        JPanel buttonsPanel = new JPanel(new GridLayout(2, 2, 20, 20));
-        buttonsPanel.setBackground(new Color(240, 248, 255));
-        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
+        JPanel mainPanel = new JPanel(new GridLayout(1, 2, 20, 0));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
-        // Create algorithm buttons
-        JButton priorityButton = createAlgorithmButton("Priority Preemptive Scheduling", 
-            "Schedule processes based on priority", new Color(52, 73, 94));
-        JButton readersWritersButton = createAlgorithmButton("Readers-Writers Problem", 
-            "Classic synchronization problem", new Color(155, 89, 182));
-        JButton fcfsButton = createAlgorithmButton("FCFS Disk Scheduling", 
-            "First Come First Serve algorithm", new Color(39, 174, 96));
-        JButton lruButton = createAlgorithmButton("LRU Page Replacement", 
-            "Least Recently Used algorithm", new Color(230, 126, 34));
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        leftPanel.setBorder(BorderFactory.createTitledBorder("Available Algorithms"));
         
-        // Add action listeners
-        priorityButton.addActionListener(e -> {
-            new PrioritySchedulingGUI().setVisible(true);
-        });
+        JTextArea algorithmDescriptions = new JTextArea();
+        algorithmDescriptions.setEditable(false);
+        algorithmDescriptions.setFont(new Font("Arial", Font.PLAIN, 12));
+        algorithmDescriptions.setText(
+            "PRIORITY PREEMPTIVE SCHEDULING\n" +
+            "• Schedules processes based on priority\n" +
+            "• Higher priority processes execute first\n" +
+            "• Preemptive - running process can be interrupted\n" +
+            "• Professional GUI with real-time visualization\n\n" +
+            
+            "READERS-WRITERS PROBLEM\n" +
+            "• Classic synchronization problem\n" +
+            "• Multiple readers can read simultaneously\n" +
+            "• Only one writer can write at a time\n" +
+            "• Semaphore-based implementation\n\n" +
+            
+            "FCFS DISK SCHEDULING\n" +
+            "• First Come First Serve algorithm\n" +
+            "• Requests processed in arrival order\n" +
+            "• Simple but may not be optimal\n" +
+            "• Visual disk track representation\n\n" +
+            
+            "LRU PAGE REPLACEMENT\n" +
+            "• Least Recently Used algorithm\n" +
+            "• Replaces least recently used page\n" +
+            "• Effective for memory management\n" +
+            "• Memory frame visualization\n\n" +
+            
+            "Select an algorithm from the right panel and click 'Launch Algorithm' to begin."
+        );
         
-        readersWritersButton.addActionListener(e -> {
-            new ReadersWritersGUI().setVisible(true);
-        });
+        JScrollPane scrollPane = new JScrollPane(algorithmDescriptions);
+        leftPanel.add(scrollPane, BorderLayout.CENTER);
         
-        fcfsButton.addActionListener(e -> {
-            new FCFSDiskSchedulingGUI().setVisible(true);
-        });
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        rightPanel.setBorder(BorderFactory.createTitledBorder("Select Algorithm"));
         
-        lruButton.addActionListener(e -> {
-            new LRUPageReplacementGUI().setVisible(true);
-        });
+        JPanel selectionPanel = new JPanel();
+        selectionPanel.setLayout(new BoxLayout(selectionPanel, BoxLayout.Y_AXIS));
         
-        // Add buttons to panel
-        buttonsPanel.add(priorityButton);
-        buttonsPanel.add(readersWritersButton);
-        buttonsPanel.add(fcfsButton);
-        buttonsPanel.add(lruButton);
+        priorityButton = new JRadioButton("Priority Preemptive Scheduling");
+        readersWritersButton = new JRadioButton("Readers-Writers Problem");
+        fcfsButton = new JRadioButton("FCFS Disc Scheduling");
+        lruButton = new JRadioButton("LRU Algorithm");
         
-        mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
+        priorityButton.setSelected(true);
         
-        setContentPane(mainPanel);
+        algorithmGroup = new ButtonGroup();
+        algorithmGroup.add(priorityButton);
+        algorithmGroup.add(readersWritersButton);
+        algorithmGroup.add(fcfsButton);
+        algorithmGroup.add(lruButton);
+        
+        selectionPanel.add(priorityButton);
+        selectionPanel.add(Box.createVerticalStrut(10));
+        selectionPanel.add(readersWritersButton);
+        selectionPanel.add(Box.createVerticalStrut(10));
+        selectionPanel.add(fcfsButton);
+        selectionPanel.add(Box.createVerticalStrut(10));
+        selectionPanel.add(lruButton);
+        selectionPanel.add(Box.createVerticalGlue());
+        
+        rightPanel.add(selectionPanel, BorderLayout.CENTER);
+        
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        
+        JButton launchButton = new JButton("Launch Algorithm");
+        launchButton.setBackground(new Color(52, 152, 219));
+        launchButton.setForeground(Color.WHITE);
+        launchButton.setFont(new Font("Arial", Font.BOLD, 12));
+        launchButton.addActionListener(e -> launchSelectedAlgorithm());
+        
+        JButton exitButton = new JButton("Exit");
+        exitButton.setBackground(new Color(231, 76, 60));
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setFont(new Font("Arial", Font.BOLD, 12));
+        exitButton.addActionListener(e -> System.exit(0));
+        
+        buttonPanel.add(launchButton);
+        buttonPanel.add(exitButton);
+        
+        rightPanel.add(buttonPanel, BorderLayout.SOUTH);
+        
+        mainPanel.add(leftPanel);
+        mainPanel.add(rightPanel);
+        
+        add(mainPanel, BorderLayout.CENTER);
     }
     
-    private JButton createAlgorithmButton(String title, String description, Color color) {
-        JButton button = new JButton("<html><center><b>" + title + "</b><br><small>" + description + "</small></center></html>");
-        button.setFont(new Font("Arial", Font.BOLD, 14));
-        button.setBackground(color);
-        button.setForeground(Color.WHITE);
-        button.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        button.setFocusPainted(false);
-        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        return button;
+    private void launchSelectedAlgorithm() {
+        if (priorityButton.isSelected()) {
+            new PrioritySchedulingGUI().setVisible(true);
+        } else if (readersWritersButton.isSelected()) {
+            new ReadersWritersGUI().setVisible(true);
+        } else if (fcfsButton.isSelected()) {
+            new FCFSDiskSchedulingGUI().setVisible(true);
+        } else if (lruButton.isSelected()) {
+            new LRUPageReplacementGUI().setVisible(true);
+        }
     }
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.setVisible(true);
-            System.out.println("Main Menu is now running!");
+            new MainMenu().setVisible(true);
         });
     }
 } 
