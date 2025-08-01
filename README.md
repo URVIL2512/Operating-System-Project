@@ -87,3 +87,9 @@ java FCFSDiskSchedulingGUI
 ```bash
 java LRUPageReplacementGUI
 ```
+
+### 📽️ Project Demo
+
+Here is a short demo video showcasing the core features and functionality of this project:
+
+🔗 [Watch Demo Video on Google Drive](https://drive.google.com/file/d/1kK-AQ7LGzJRoCZnPe0GYuFsaF9D0gCuQ/view?usp=sharing)
